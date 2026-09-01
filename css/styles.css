@@ -1,0 +1,464 @@
+/* =========================================
+   1. RESET
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   2. VARIABLES (colores, tipografía, box model)
+   ========================================= */
+:root {
+  --bg: #0d0e13;
+  --bg-alt: #171b30;
+  --primary: #7281ff;
+  --primary-light: #a78bfa;
+  --accent: #ffffff;
+  --text: #dbdbdb;
+  --text-muted: #a0a4c1;
+  --border: #585d79;
+  --radius: 10px;
+  --transition: 0.25s ease;
+  --font-heading: 'Roboto', 'Segoe UI', sans-serif;
+  --font-body: 'Roboto', Arial, sans-serif;
+}
+
+/* =========================================
+   3. BASE
+   ========================================= */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   4. BOTONES (modelo de cajas)
+   ========================================= */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: transparent;
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
+
+.btn-small:hover {
+  background-color: var(--primary-light);
+  color: var(--bg);
+}
+
+/* =========================================
+   5. HEADER Y NAV (Flexbox)
+   ========================================= */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 32px;
+}
+
+#mainNav a {
+  font-weight: 500;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+#mainNav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text);
+  border-radius: 2px;
+}
+
+/* =========================================
+   6. HERO
+   ========================================= */
+.hero {
+  text-align: center;
+  padding: 80px 0;
+  background-color: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-text {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  color: var(--primary-light);
+}
+
+.hero-text p {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* =========================================
+   7. TÍTULOS DE SECCIÓN
+   ========================================= */
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   8. CATÁLOGO (CSS Grid)
+   ========================================= */
+.catalog {
+  padding: 80px 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background-color: var(--bg-alt);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-light);
+}
+
+.card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 20px;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.card-body h3 {
+  margin-bottom: 4px;
+}
+
+.platform {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* =========================================
+   9. OFERTAS (Flexbox)
+   ========================================= */
+.offers {
+  background-color: var(--bg-alt);
+  padding: 70px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.offers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.offer-card {
+  flex: 1 1 260px;
+  max-width: 320px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.offer-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.offer-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary-light);
+}
+
+.offer-card p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.offer-price {
+  display: inline-block;
+  font-weight: 800;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: var(--radius);
+}
+
+/* =========================================
+   10. FOOTER (Flexbox)
+   ========================================= */
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 56px 20px 40px;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+}
+
+.footer-col h4 {
+  margin-bottom: 16px;
+}
+
+.footer-col h4 span {
+  color: var(--accent);
+}
+
+.footer-col p,
+.footer-col li {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* =========================================
+   11. MEDIA QUERIES (mobile-first)
+   ========================================= */
+
+/* Base = móvil (< 576px): nav colapsado en menú hamburguesa, grid a 1 columna */
+.main-nav {
+  display: none;
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+
+.main-nav.open {
+  display: block;
+}
+
+.main-nav ul {
+  flex-direction: column;
+  padding: 12px 20px;
+}
+
+#mainNav a {
+  display: block;
+  padding: 10px 0;
+}
+
+.nav-toggle {
+  display: flex;
+}
+
+.product-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: >= 576px - grid a 2 columnas */
+@media (min-width: 576px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Escritorio: >= 992px - nav en fila y grid a 3 columnas */
+@media (min-width: 992px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+    width: auto;
+    border-top: none;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  #mainNav a {
+    display: inline-block;
+    padding: 6px 2px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+}
