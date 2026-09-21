@@ -1,8 +1,3 @@
-/**
- * GameZone — interactividad del catálogo, búsqueda y carrito.
- * Flujo: cargar JSON → pintar cards → eventos click / submit / mouseover.
- */
-
 const RUTA_PRODUCTOS = "data/productos.json";
 
 /** Catálogo completo traído por Fetch */
