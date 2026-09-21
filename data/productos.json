@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "Death Stranding 2",
+    "plataforma": "PS5",
+    "categoria": "consolas",
+    "genero": "Acción / Aventura",
+    "precio": 59990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
+    "descripcion": "Conecta un mundo fragmentado"
+  },
+  {
+    "id": 2,
+    "nombre": "Red Dead Redemption 2",
+    "plataforma": "PC",
+    "categoria": "pc",
+    "genero": "Acción / Aventura",
+    "precio": 44990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg",
+    "descripcion": "Historia de forajidos"
+  },
+  {
+    "id": 3,
+    "nombre": "GTA VI",
+    "plataforma": "PS5",
+    "categoria": "consolas",
+    "genero": "Acción",
+    "precio": 79990,
+    "imagen": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg",
+    "descripcion": "El juego más esperado de la decada"
+  },
+  {
+    "id": 4,
+    "nombre": "Zelda Tears of the Kingdom",
+    "plataforma": "Switch",
+    "categoria": "consolas",
+    "genero": "Aventura",
+    "precio": 44990,
+    "imagen": "https://images.ctfassets.net/pkeegl0voupm/4QhxwVmByqilfngz2AmvqR/392164e52e1c5c4a80ee34f35713fc04/news_zelda_bnr.jpg",
+    "descripcion": "Explora los cielos y las ruinas de Hyrule"
+  },
+  {
+    "id": 5,
+    "nombre": "Elden Ring",
+    "plataforma": "PS5",
+    "categoria": "consolas",
+    "genero": "Acción / Aventura",
+    "precio": 54990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg",
+    "descripcion": "Explora las Tierras Intermedias como un sinluz"
+  },
+  {
+    "id": 6,
+    "nombre": "The Witcher 3",
+    "plataforma": "PC",
+    "categoria": "pc",
+    "genero": "Acción / Aventura",
+    "precio": 39990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
+    "descripcion": "."
+  },
+  {
+    "id": 7,
+    "nombre": "The Last of Us Part II",
+    "plataforma": "Xbox",
+    "categoria": "consolas",
+    "genero": "Acción / Aventura",
+    "precio": 57990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2531310/header.jpg",
+    "descripcion": "La historia de Ellie continua"
+  },
+  {
+    "id": 8,
+    "nombre": "Dark Souls 3",
+    "plataforma": "PS5",
+    "categoria": "consolas",
+    "genero": "Acción",
+    "precio": 22990,
+    "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/header.jpg",
+    "descripcion": "El cierre de la trilogía souls"
+  }
+]

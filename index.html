@@ -7,216 +7,242 @@
   <meta name="description" content="GameZone - Tu tienda de videojuegos: consolas, juegos y accesorios al mejor precio.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="visually-hidden-focusable skip-link" href="#catalogo">Saltar al catálogo</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#inicio" class="logo">Zona<span>Gaming</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
-        <span></span>
-        <span></span>
-        <span></span>
+  <!-- Barra de navegación responsiva (se colapsa en móviles) -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-navbar" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand logo" href="#inicio">Game<span>Zone</span></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarPrincipal"
+        aria-controls="navbarPrincipal"
+        aria-expanded="false"
+        aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <nav class="main-nav" id="mainNav">
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#catalogo">Catálogo</a></li>
-          <li><a href="#ofertas">Ofertas</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+
+      <div class="collapse navbar-collapse" id="navbarPrincipal">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link filtro-categoria active" href="#catalogo" data-categoria="todos">Catálogo</a>
+          </li>
+          <!-- Categorías simuladas: filtran el catálogo -->
+          <li class="nav-item">
+            <a class="nav-link filtro-categoria" href="#catalogo" data-categoria="pc">PC</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link filtro-categoria" href="#catalogo" data-categoria="consolas">Consolas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ofertas">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
         </ul>
-      </nav>
+
+        <!-- Formulario de búsqueda (evento submit) -->
+        <form class="d-flex mb-3 mb-lg-0 me-lg-3" id="form-busqueda" role="search">
+          <label class="visually-hidden" for="input-busqueda">Buscar productos</label>
+          <input
+            class="form-control me-2"
+            type="search"
+            id="input-busqueda"
+            name="q"
+            placeholder="Buscar juegos..."
+            autocomplete="off">
+          <button class="btn btn-outline-info" type="submit">Buscar</button>
+        </form>
+
+        <button
+          class="btn btn-primary position-relative"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#carrito"
+          aria-controls="carrito"
+          aria-label="Abrir carrito de compras">
+          Carrito
+          <span class="badge text-bg-light text-dark ms-1" id="badge-carrito">0</span>
+        </button>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <main>
-    <section id="inicio" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>Vive la nueva generación de <span>videojuegos</span></h1>
-          <p>Los mejores juegos, consolas y accesorios para gamers, con envío a todo el país.</p>
-          <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
+    <!-- Carrusel destacado: cambia automáticamente cada 3 segundos -->
+    <section id="inicio" class="hero" aria-label="Juegos destacados">
+      <div id="carruselDestacados" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carruselDestacados" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carruselDestacados" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carruselDestacados" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345"
+              class="d-block w-100 carousel-img"
+              alt="Death Stranding 2, juego destacado de acción y aventura">
+            <div class="carousel-caption">
+              <h1 class="h2">Vive la nueva generación de <span>videojuegos</span></h1>
+              <p class="d-none d-md-block">Death Stranding 2 ya está en GameZone. Envío a todo el país.</p>
+              <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg"
+              class="d-block w-100 carousel-img"
+              alt="Red Dead Redemption 2 para PC">
+            <div class="carousel-caption">
+              <h2 class="h2">El oeste en tu PC</h2>
+              <p class="d-none d-md-block">Red Dead Redemption 2 con descuento de catálogo.</p>
+              <a href="#catalogo" class="btn btn-primary">Comprar ahora</a>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg"
+              class="d-block w-100 carousel-img"
+              alt="Elden Ring, RPG de acción">
+            <div class="carousel-caption">
+              <h2 class="h2">Las Tierras Intermedias te esperan</h2>
+              <p class="d-none d-md-block">Elden Ring para PS5, disponible en consolas.</p>
+              <a href="#catalogo" class="btn btn-primary">Ver en catálogo</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestacados" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselDestacados" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Catálogo: las tarjetas se generan con JavaScript (Fetch + DOM) -->
+    <section id="catalogo" class="catalog py-5">
+      <div class="container">
+        <h2 class="section-title text-center">Catálogo de Juegos</h2>
+        <p class="section-subtitle text-center mb-4">Descubre nuestra selección destacada para PC y consola</p>
+        <p class="text-center text-muted mb-4" id="resultado-filtro" aria-live="polite"></p>
+
+        <div id="mensaje-catalogo" class="mb-3" aria-live="assertive"></div>
+
+        <div class="row g-4" id="productos-grid">
+          <div class="col-12 text-center py-5" id="estado-carga">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Cargando productos...</span>
+            </div>
+            <p class="mt-3 mb-0">Cargando catálogo...</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="catalogo" class="catalog">
+    <!-- Ofertas: grid de Bootstrap -->
+    <section id="ofertas" class="offers py-5">
       <div class="container">
-        <h2 class="section-title">Catálogo de Juegos</h2>
-        <p class="section-subtitle">Descubre nuestra selección destacada para PC y consola</p>
-
-        <div class="product-grid">
-
-          <article class="card">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345">
-            <div class="card-body">
-              <span class="badge">PS5</span>
-              <h3>Death Stranding 2</h3>
-              <p class="platform">Acción / Aventura</p>
-              <div class="card-footer">
-                <span class="price">$59.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961">
-            <div class="card-body">
-              <span class="badge">PC</span>
-              <h3>Red Dead Redemption 2</h3>
-              <p class="platform">Acción / Aventura</p>
-              <div class="card-footer">
-                <span class="price">$44.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">PS5</span>
-              <h3>GTA VI</h3>
-              <p class="platform">Acción</p>
-              <div class="card-footer">
-                <span class="price">$79.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">Switch</span>
-              <h3>Zelda Tears of the Kingdom</h3>
-              <p class="platform">Aventura</p>
-              <div class="card-footer">
-                <span class="price">$44.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">PS5</span>
-              <h3>Elden Ring</h3>
-              <p class="platform">Acción / Aventura</p>
-              <div class="card-footer">
-                <span class="price">$54.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">PC</span>
-              <h3>The witcher 3</h3>
-              <p class="platform">Acción / Aventura</p>
-              <div class="card-footer">
-                <span class="price">$39.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">Xbox</span>
-              <h3>The Last of Us Part II</h3>
-              <p class="platform">Acción / Aventura</p>
-              <div class="card-footer">
-                <span class="price">$57.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-body">
-              <span class="badge">PS5</span>
-              <h3>Dark Souls 3</h3>
-              <p class="platform">Acción</p>
-              <div class="card-footer">
-                <span class="price">$22.990</span>
-                <button class="btn btn-small">Agregar</button>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="ofertas" class="offers">
-      <div class="container">
-        <h2 class="section-title light">Ofertas Destacadas</h2>
-        <div class="offers-list">
-          <div class="offer-card">
-            <h3>Combo Gamer</h3>
-            <p>Consola + 2 juegos + control extra</p>
-            <span class="offer-price">-25% OFF</span>
+        <h2 class="section-title text-center mb-4">Ofertas Destacadas</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="offer-card h-100 p-4 text-center">
+              <h3>Combo Gamer</h3>
+              <p>Consola + 2 juegos + control extra</p>
+              <span class="offer-price">-25% OFF</span>
+            </article>
           </div>
-          <div class="offer-card">
-            <h3>Semana RPG</h3>
-            <p>Los mejores RPG con descuentos exclusivos</p>
-            <span class="offer-price">-15% OFF</span>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="offer-card h-100 p-4 text-center">
+              <h3>Semana RPG</h3>
+              <p>Los mejores RPG con descuentos exclusivos</p>
+              <span class="offer-price">-15% OFF</span>
+            </article>
           </div>
-          <div class="offer-card">
-            <h3>Accesorios Pro</h3>
-            <p>Audífonos, controles y sillas gamer</p>
-            <span class="offer-price">-30% OFF</span>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="offer-card h-100 p-4 text-center">
+              <h3>Accesorios Pro</h3>
+              <p>Audífonos, controles y sillas gamer</p>
+              <span class="offer-price">-30% OFF</span>
+            </article>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="contacto" class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <h4>Game<span>Zone</span></h4>
-        <p>Tu tienda de confianza en videojuegos, consolas y accesorios desde 2024.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Enlaces</h4>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#catalogo">Catálogo</a></li>
-          <li><a href="#ofertas">Ofertas</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li>contacto@gamezone.cl</li>
-          <li>+56 9 1234 5678</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Síguenos</h4>
-        <div class="social-links">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Twitter">TW</a>
+  <!-- Pie de página con contacto y redes -->
+  <footer id="contacto" class="site-footer pt-5">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="h5">Game<span>Zone</span></h2>
+          <p class="footer-text">Tu tienda de confianza en videojuegos, consolas y accesorios desde 2024.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="h5">Enlaces</h2>
+          <ul class="list-unstyled">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="h5">Contacto</h2>
+          <ul class="list-unstyled footer-text">
+            <li><a href="mailto:contacto@gamezone.cl">contacto@gamezone.cl</a></li>
+            <li><a href="tel:+56912345678">+56 9 1234 5678</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-3">
+          <h2 class="h5">Síguenos</h2>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">TW</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 GameZone. Todos los derechos reservados.</p>
+    <div class="footer-bottom py-3 text-center">
+      <p class="mb-0">&copy; 2026 GameZone. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
-    navToggle.addEventListener('click', () => {
-      const isOpen = mainNav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-  </script>
+  <!-- Resumen del carrito (offcanvas Bootstrap) -->
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="carrito"
+    aria-labelledby="carritoLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="carritoLabel">Tu carrito</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar carrito"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="carrito-lista" aria-live="polite"></div>
+      <div class="mt-auto pt-3 border-top">
+        <p class="fs-5 mb-3">Total: <strong id="carrito-total">$0</strong></p>
+        <button type="button" class="btn btn-outline-light w-100" id="btn-vaciar-carrito">Vaciar carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

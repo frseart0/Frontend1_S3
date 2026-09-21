@@ -1,35 +1,24 @@
-/* =========================================
-   1. RESET
-   ========================================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Tema GameZone sobre Bootstrap 5: colores, tipografía y acentos */
 
-/* =========================================
-   2. VARIABLES (colores, tipografía, box model)
-   ========================================= */
 :root {
   --bg: #0d0e13;
   --bg-alt: #171b30;
   --primary: #4992ff;
-  --primary-light: #4992ff;
   --accent: #ffffff;
   --text: #dbdbdb;
   --text-muted: #a0a4c1;
   --border: #585d79;
   --radius: 5px;
   --transition: 0.25s ease;
-  --font-heading: 'Roboto', 'Segoe UI', sans-serif;
-  --font-body: 'Roboto', Arial, sans-serif;
+  --font-heading: "Orbitron", "Roboto", "Segoe UI", sans-serif;
+  --font-body: "Roboto", Arial, sans-serif;
 }
 
-/* =========================================
-   3. BASE
-   ========================================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--bg);
@@ -37,237 +26,188 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4,
+.h2,
+.h5,
+.navbar-brand,
+.section-title {
   font-family: var(--font-heading);
-  line-height: 1.2;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.skip-link:focus {
+  position: absolute;
+  z-index: 1080;
+  top: 8px;
+  left: 8px;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: #fff;
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* =========================================
-   4. BOTONES (modelo de cajas)
-   ========================================= */
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border: 2px solid transparent;
-  border-radius: var(--radius);
-  font-weight: 700;
-  cursor: pointer;
-  transition: all var(--transition);
+/* Navbar */
+.site-navbar {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 1030;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.logo span,
+.site-footer h2 span {
+  color: var(--primary);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--accent);
+}
+
+.site-navbar .form-control {
+  background-color: var(--bg-alt);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.site-navbar .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.site-navbar .form-control:focus {
+  background-color: var(--bg-alt);
+  color: var(--text);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(73, 146, 255, 0.25);
 }
 
 .btn-primary {
   background-color: var(--primary);
+  border-color: var(--primary);
+  font-weight: 700;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #6aa6ff;
+  border-color: #6aa6ff;
+}
+
+.btn-outline-info {
+  color: var(--primary);
+  border-color: var(--primary);
+  font-weight: 700;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus {
+  background-color: var(--primary);
+  border-color: var(--primary);
   color: #fff;
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-light);
-  transform: translateY(-2px);
+/* Carrusel */
+.carousel-item {
+  position: relative;
 }
 
-.btn-small {
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  background: transparent;
-  border-color: var(--primary-light);
-  color: var(--primary-light);
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 14, 19, 0.88), rgba(13, 14, 19, 0.35));
+  pointer-events: none;
 }
 
-.btn-small:hover {
-  background-color: var(--primary-light);
-  color: var(--bg);
+.carousel-img {
+  height: 280px;
+  object-fit: cover;
 }
 
-/* =========================================
-   5. HEADER Y NAV (Flexbox)
-   ========================================= */
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+.carousel-caption {
+  z-index: 2;
+  bottom: 1.5rem;
+  left: 10%;
+  right: 10%;
 }
 
-.logo {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 800;
+@media (min-width: 768px) {
+  .carousel-img {
+    height: 420px;
+  }
 }
 
-.logo span {
-  color: var(--accent);
+@media (min-width: 992px) {
+  .carousel-img {
+    height: 480px;
+  }
 }
 
-.main-nav ul {
-  display: flex;
-  gap: 32px;
+.carousel-caption h1 span,
+.carousel-caption h2 span {
+  color: var(--primary);
 }
 
-#mainNav a {
-  font-weight: 500;
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
-}
-
-#mainNav a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: var(--text);
-  border-radius: 2px;
-}
-
-/* =========================================
-   6. HERO
-   ========================================= */
-.hero {
-  text-align: center;
-  padding: 80px 0;
-  background-color: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
-}
-
-.hero-text {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.hero-text h1 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
-
-.hero-text h1 span {
-  color: var(--primary-light);
-}
-
-.hero-text p {
-  color: var(--text-muted);
-  margin-bottom: 28px;
-}
-
-/* =========================================
-   7. TÍTULOS DE SECCIÓN
-   ========================================= */
 .section-title {
   font-size: 2rem;
-  text-align: center;
-  margin-bottom: 8px;
 }
 
-.section-subtitle {
-  text-align: center;
+.section-subtitle,
+#resultado-filtro {
   color: var(--text-muted);
-  margin-bottom: 40px;
 }
 
-/* =========================================
-   8. CATÁLOGO (CSS Grid)
-   ========================================= */
-.catalog {
-  padding: 80px 0;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-}
-
-.card {
+/* Cards de productos */
+.product-card {
   background-color: var(--bg-alt);
   border: 2px solid var(--border);
   border-radius: var(--radius);
-  overflow: hidden;
-  transition: all var(--transition);
+  color: var(--text);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary-light);
+.product-card.card-hover,
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 24px rgba(73, 146, 255, 0.18);
 }
 
-.card-image {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
+.product-card .card-img-top {
+  height: 160px;
+  object-fit: cover;
+  background-color: #111;
 }
 
-.card-body {
-  padding: 20px;
+.product-card .card-title {
+  font-size: 1.05rem;
 }
 
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  margin-bottom: 10px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  border-radius: 20px;
-  background-color: var(--primary);
-  color: #fff;
-}
-
-.card-body h3 {
-  margin-bottom: 4px;
-}
-
-.platform {
+.product-card .card-text,
+.product-extra {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-bottom: 16px;
+  font-size: 0.9rem;
 }
 
-.card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.product-extra {
+  min-height: 3em;
 }
 
 .price {
@@ -275,31 +215,38 @@ button:focus-visible {
   color: var(--accent);
 }
 
-/* =========================================
-   9. OFERTAS (Flexbox)
-   ========================================= */
+.product-card .badge {
+  width: fit-content;
+  background-color: var(--primary);
+}
+
+.btn-add {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  background-color: var(--primary);
+  color: var(--bg);
+}
+
+/* Ofertas */
 .offers {
   background-color: var(--bg-alt);
-  padding: 70px 0;
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
-.offers-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-
 .offer-card {
-  flex: 1 1 260px;
-  max-width: 320px;
   background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px;
-  text-align: center;
-  transition: all var(--transition);
+  transition: border-color var(--transition), transform var(--transition);
 }
 
 .offer-card:hover {
@@ -308,14 +255,11 @@ button:focus-visible {
 }
 
 .offer-card h3 {
-  margin-bottom: 10px;
-  color: var(--primary-light);
+  color: var(--primary);
 }
 
 .offer-card p {
   color: var(--text-muted);
-  margin-bottom: 16px;
-  font-size: 0.95rem;
 }
 
 .offer-price {
@@ -327,38 +271,23 @@ button:focus-visible {
   border-radius: var(--radius);
 }
 
-/* =========================================
-   10. FOOTER (Flexbox)
-   ========================================= */
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 56px 20px 40px;
+/* Footer */
+.site-footer {
+  background-color: var(--bg);
 }
 
-.footer-col {
-  flex: 1 1 200px;
+.site-footer a {
+  color: var(--text-muted);
+  text-decoration: none;
 }
 
-.footer-col h4 {
-  margin-bottom: 16px;
-}
-
-.footer-col h4 span {
+.site-footer a:hover {
   color: var(--accent);
 }
 
-.footer-col p,
-.footer-col li {
+.footer-text {
   color: var(--text-muted);
   font-size: 0.92rem;
-  margin-bottom: 8px;
-}
-
-.footer-col ul li a:hover {
-  color: var(--accent);
 }
 
 .social-links {
@@ -376,89 +305,37 @@ button:focus-visible {
   border-radius: 50%;
   font-size: 0.75rem;
   font-weight: 700;
-  transition: all var(--transition);
+  color: var(--text);
+  transition: background-color var(--transition), border-color var(--transition);
 }
 
 .social-links a:hover {
   background-color: var(--primary);
   border-color: var(--primary);
+  color: #fff;
 }
 
 .footer-bottom {
   border-top: 1px solid var(--border);
-  padding: 20px 0;
-  text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
 }
 
-/* =========================================
-   11. MEDIA QUERIES (mobile-first)
-   ========================================= */
-
-/* Base = móvil (< 576px): nav colapsado en menú hamburguesa, grid a 1 columna */
-.main-nav {
-  display: none;
-  width: 100%;
-  border-top: 1px solid var(--border);
+/* Offcanvas del carrito */
+.offcanvas {
+  background-color: var(--bg-alt);
+  color: var(--text);
 }
 
-.main-nav.open {
-  display: block;
+.offcanvas .btn-close {
+  filter: invert(1);
 }
 
-.main-nav ul {
-  flex-direction: column;
-  padding: 12px 20px;
+.cart-item {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
 }
 
-#mainNav a {
-  display: block;
-  padding: 10px 0;
-}
-
-.nav-toggle {
-  display: flex;
-}
-
-.product-grid {
-  grid-template-columns: 1fr;
-}
-
-/* Tablet: >= 576px - grid a 2 columnas */
-@media (min-width: 576px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Escritorio: >= 992px - nav en fila y grid a 3 columnas */
-@media (min-width: 992px) {
-  .nav-toggle {
-    display: none;
-  }
-
-  .main-nav {
-    display: block;
-    width: auto;
-    border-top: none;
-  }
-
-  .main-nav ul {
-    flex-direction: row;
-    padding: 0;
-  }
-
-  #mainNav a {
-    display: inline-block;
-    padding: 6px 2px;
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-text h1 {
-    font-size: 2.6rem;
-  }
+.cart-empty {
+  color: var(--text-muted);
 }
