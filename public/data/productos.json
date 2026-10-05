@@ -6,6 +6,7 @@
     "categoria": "consolas",
     "genero": "Acción / Aventura",
     "precio": 59990,
+    "precioOferta": 49990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
     "descripcion": "Conecta un mundo fragmentado"
   },
@@ -16,6 +17,7 @@
     "categoria": "pc",
     "genero": "Acción / Aventura",
     "precio": 44990,
+    "precioOferta": 34990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg",
     "descripcion": "Historia de forajidos"
   },
@@ -26,6 +28,7 @@
     "categoria": "consolas",
     "genero": "Acción",
     "precio": 79990,
+    "precioOferta": 69990,
     "imagen": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg",
     "descripcion": "El juego más esperado de la decada"
   },
@@ -36,6 +39,7 @@
     "categoria": "consolas",
     "genero": "Aventura",
     "precio": 44990,
+    "precioOferta": 39990,
     "imagen": "https://images.ctfassets.net/pkeegl0voupm/4QhxwVmByqilfngz2AmvqR/392164e52e1c5c4a80ee34f35713fc04/news_zelda_bnr.jpg",
     "descripcion": "Explora los cielos y las ruinas de Hyrule"
   },
@@ -46,6 +50,7 @@
     "categoria": "consolas",
     "genero": "Acción / Aventura",
     "precio": 54990,
+    "precioOferta": 44990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg",
     "descripcion": "Explora las Tierras Intermedias como un sinluz"
   },
@@ -56,8 +61,9 @@
     "categoria": "pc",
     "genero": "Acción / Aventura",
     "precio": 39990,
+    "precioOferta": 19990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
-    "descripcion": "."
+    "descripcion": "Caza monstruos en un continente en guerra"
   },
   {
     "id": 7,
@@ -66,6 +72,7 @@
     "categoria": "consolas",
     "genero": "Acción / Aventura",
     "precio": 57990,
+    "precioOferta": 47990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2531310/header.jpg",
     "descripcion": "La historia de Ellie continua"
   },
@@ -76,6 +83,7 @@
     "categoria": "consolas",
     "genero": "Acción",
     "precio": 22990,
+    "precioOferta": 14990,
     "imagen": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/header.jpg",
     "descripcion": "El cierre de la trilogía souls"
   }
