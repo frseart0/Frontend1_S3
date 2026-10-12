@@ -3,7 +3,7 @@ import ProductoCard from "./ProductoCard.jsx";
 /**
  * Listado del catálogo, con estados de carga, error y búsqueda vacía.
  */
-export default function Catalogo({ productos, cargando, error, idsEnCarrito, onAlternar }) {
+export default function Catalogo({ productos, cargando, error, idsEnCarrito, onAlternar, onQuitar }) {
   const mostrarResultado = !cargando && !error;
 
   return (
@@ -55,6 +55,7 @@ export default function Catalogo({ productos, cargando, error, idsEnCarrito, onA
                   producto={producto}
                   enCarrito={idsEnCarrito.includes(producto.id)}
                   onAlternar={onAlternar}
+                  onQuitar={onQuitar}
                 />
               ))
             : null}

@@ -1,6 +1,6 @@
-export default function Footer() {
+export default function Footer({ onIrTienda }) {
   return (
-    <footer id="contacto" className="site-footer pt-5">
+    <footer className="site-footer pt-5">
       <div className="container">
         <div className="row g-4 pb-4">
           <div className="col-12 col-md-6 col-lg-3">
@@ -15,13 +15,37 @@ export default function Footer() {
             <h2 className="h5">Enlaces</h2>
             <ul className="list-unstyled">
               <li>
-                <a href="#inicio">Inicio</a>
+                <a
+                  href="#inicio"
+                  onClick={(evento) => {
+                    evento.preventDefault();
+                    onIrTienda("inicio");
+                  }}
+                >
+                  Inicio
+                </a>
               </li>
               <li>
-                <a href="#catalogo">Catálogo</a>
+                <a
+                  href="#catalogo"
+                  onClick={(evento) => {
+                    evento.preventDefault();
+                    onIrTienda("catalogo");
+                  }}
+                >
+                  Catálogo
+                </a>
               </li>
               <li>
-                <a href="#ofertas">Ofertas</a>
+                <a
+                  href="#ofertas"
+                  onClick={(evento) => {
+                    evento.preventDefault();
+                    onIrTienda("ofertas");
+                  }}
+                >
+                  Ofertas
+                </a>
               </li>
             </ul>
           </div>

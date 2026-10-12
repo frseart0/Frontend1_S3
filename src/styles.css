@@ -315,6 +315,53 @@ input:focus-visible {
   border-radius: var(--radius);
 }
 
+/* Formularios de contacto y alta de juegos */
+.site-form .form-control,
+.site-form .form-select {
+  background-color: var(--bg-alt);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.site-form .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.site-form .form-control:focus,
+.site-form .form-select:focus {
+  background-color: var(--bg-alt);
+  color: var(--text);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(73, 146, 255, 0.25);
+}
+
+.site-form .form-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.alta-juego {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-quitar {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.btn-quitar:hover,
+.btn-quitar:focus {
+  background: transparent;
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
 /* Footer */
 .site-footer {
   background-color: var(--bg);

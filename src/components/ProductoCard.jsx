@@ -15,7 +15,7 @@ function alFallarImagen(evento) {
 /**
  * Tarjeta de producto. El texto del botón depende de si ya está en el carrito.
  */
-export default function ProductoCard({ producto, enCarrito, onAlternar }) {
+export default function ProductoCard({ producto, enCarrito, onAlternar, onQuitar }) {
   const textoBoton = enCarrito ? "En el carrito" : "Agregar al carrito";
 
   return (
@@ -23,7 +23,7 @@ export default function ProductoCard({ producto, enCarrito, onAlternar }) {
       <article className="card product-card h-100">
         <img
           className="card-img-top"
-          src={producto.imagen}
+          src={producto.imagen || IMAGEN_RESPALDO}
           alt={producto.nombre}
           onError={alFallarImagen}
         />
@@ -43,6 +43,13 @@ export default function ProductoCard({ producto, enCarrito, onAlternar }) {
               onClick={() => onAlternar(producto)}
             >
               {textoBoton}
+            </button>
+            <button
+              type="button"
+              className="btn btn-quitar w-100 mt-2"
+              onClick={() => onQuitar(producto.id)}
+            >
+              Quitar del catálogo
             </button>
           </div>
         </div>

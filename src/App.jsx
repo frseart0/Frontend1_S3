@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Carrusel from "./components/Carrusel.jsx";
 import Catalogo from "./components/Catalogo.jsx";
+import AgregarJuego from "./components/AgregarJuego.jsx";
 import Ofertas from "./components/Ofertas.jsx";
+import Contacto from "./components/Contacto.jsx";
 import Footer from "./components/Footer.jsx";
 import Carrito from "./components/Carrito.jsx";
 
@@ -35,6 +37,8 @@ export default function App() {
   const [terminoBusqueda, setTerminoBusqueda] = useState("");
   const [textoBusqueda, setTextoBusqueda] = useState("");
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
+  const [pagina, setPagina] = useState("tienda");
+  const [destino, setDestino] = useState("");
 
   useEffect(() => {
     let activo = true;
@@ -78,6 +82,20 @@ export default function App() {
       activo = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (pagina !== "tienda" || destino === "") {
+      return;
+    }
+
+    const id = destino;
+    const marco = requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      setDestino("");
+    });
+
+    return () => cancelAnimationFrame(marco);
+  }, [pagina, destino]);
 
   /**
    * Agrega el producto o suma una unidad si ya está en el carrito.
@@ -132,6 +150,35 @@ export default function App() {
     setTextoBusqueda("");
   }
 
+  function irATienda(id) {
+    setPagina("tienda");
+    setDestino(id);
+  }
+
+  function irAgregar() {
+    setPagina("agregar");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /**
+   * Agrega un juego al catálogo. El id lo asigna el estado para no repetir claves.
+   */
+  function agregarProducto(datos) {
+    setProductos((actual) => {
+      const maxId = actual.reduce((max, item) => Math.max(max, item.id), 0);
+
+      return [...actual, { ...datos, id: maxId + 1 }];
+    });
+  }
+
+  /**
+   * Quita el juego del catálogo y del carrito para que no quede un ítem sin ficha.
+   */
+  function quitarProducto(id) {
+    setProductos((actual) => actual.filter((item) => item.id !== id));
+    quitarDelCarrito(id);
+  }
+
   const productosFiltrados = filtrarProductos(productos, categoria, terminoBusqueda);
   const idsEnCarrito = carrito.map((item) => item.id);
   const totalUnidades = carrito.reduce((acc, item) => acc + item.cantidad, 0);
@@ -151,21 +198,37 @@ export default function App() {
         onTextoBusqueda={setTextoBusqueda}
         onBuscar={setTerminoBusqueda}
         onAbrirCarrito={() => setMostrarCarrito(true)}
+        pagina={pagina}
+        onIrTienda={irATienda}
+        onIrAgregar={irAgregar}
       />
 
       <main>
-        <Carrusel />
-        <Catalogo
-          productos={productosFiltrados}
-          cargando={cargando}
-          error={error}
-          idsEnCarrito={idsEnCarrito}
-          onAlternar={alternarProducto}
-        />
-        <Ofertas />
+        {pagina === "agregar" ? (
+          <AgregarJuego
+            cargando={cargando}
+            error={error}
+            onAgregar={agregarProducto}
+            onVolver={() => irATienda("catalogo")}
+          />
+        ) : (
+          <>
+            <Carrusel />
+            <Catalogo
+              productos={productosFiltrados}
+              cargando={cargando}
+              error={error}
+              idsEnCarrito={idsEnCarrito}
+              onAlternar={alternarProducto}
+              onQuitar={quitarProducto}
+            />
+            <Ofertas />
+            <Contacto />
+          </>
+        )}
       </main>
 
-      <Footer />
+      <Footer onIrTienda={irATienda} />
 
       <Carrito
         abierto={mostrarCarrito}
